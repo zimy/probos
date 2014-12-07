@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: ProbOS
+  thymeleaf:
+    check-template-location: false
+server:
+  port: 8080
+  tomcat:
+    access-log-enabled: true
+logging:
+  level: info
+  path: /tmp/questionnaire/
+---
+
+spring:
+  profiles: development
+http:
+  mappers:
+    json-pretty-print: true
+    json-sort-keys: true
+server:
+  port: 0
+---
+spring:
+  profiles: openshift
+server:
+  address: ${OPENSHIFT_DIY_IP}
+  port: ${OPENSHIFT_DIY_PORT}
+logging:
+  path: ${OPENSHIFT_DATA_DIR}/logs/
+---
