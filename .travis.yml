@@ -6,6 +6,7 @@ jdk:
 cache:
   - directories:
       - $GRADLE_USER_HOME/
+      - $HOME/.gradle/
 deploy:
   - provider: openshift
     domain: whole
