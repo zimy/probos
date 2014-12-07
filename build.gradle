@@ -1,0 +1,39 @@
+buildscript {
+    repositories {
+        maven { url "http://repo.spring.io/libs-release" }
+        maven { url 'http://dl.bintray.com/haunted-soft/maven' }
+        mavenLocal()
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.1.9.RELEASE")
+        classpath "com.sarhanm:gradle-versioner:+@jar"
+        classpath 'com.haunted.gradle-plugins:save-ssd:+@jar'
+    }
+}
+
+repositories {
+    maven { url "http://repo.spring.io/libs-release" }
+    mavenCentral()
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.2.1'
+    distributionUrl = 'http://services.gradle.org/distributions/gradle-2.2.1-all.zip'
+}
+
+apply plugin: 'com.sarhanm.versioner'
+apply plugin: 'save-ssd'
+apply plugin: 'spring-boot'
+apply plugin: 'java'
+
+jar {
+    baseName = 'ProbOS'
+}
+
+dependencies {
+    runtime 'org.hsqldb:hsqldb'
+    runtime 'org.postgresql:postgresql:9.3-1102-jdbc41'
+    compile 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    compile 'org.apache.commons:commons-math3:3.3'
+}

@@ -1,0 +1,3 @@
+#!/bin/bash
+cd $OPENSHIFT_REPO_DIR
+nohup java -Xms384m -Xmx412m -jar build/libs/*.jar --spring.profiles.active=openshift &

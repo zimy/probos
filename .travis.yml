@@ -1,0 +1,19 @@
+language: java
+jdk:
+  - oraclejdk8
+  - oraclejdk7
+  - openjdk7
+cache:
+  - directories:
+      - $GRADLE_USER_HOME/
+deploy:
+  - provider: openshift
+    domain: whole
+    app: probos
+    user:
+      secure: "mmsj6uQHty8dMKGr+scUhRs2UyccFm/iI1Es2a2DE4hicq0zq1gy8n3Z3uiDg53AoCaU0r2s9J5gtVDOH1sIm2q2XjRcfJsQiAyq7cxH+AJYY0AGhLrSy1Pg82Fkvtl7oCUipk2pKukU3/8n/Z2plCvnnJokEIhD1VNjGmeGBw4="
+    password:
+      secure: "mMDCaynAOuavyuQzmtSq2LcLWenH6S5pQUy3JBIJncYg5pH03YHvF3KIpR2PdFJjkU8Ch52gVI/JJxs0T4GZ0T7HruWrpYVLFiqwP8UdskLIPD1MKMbFSCLEglQ63Bf90mhVLYIN1D6nPCAdL6QtuSf4ErvfVstjh2+ZcCRk2O4="
+    skip_cleanup: true
+    file: "build/libs/*.jar"
+---
