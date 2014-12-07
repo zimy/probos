@@ -32,7 +32,6 @@ jar {
 }
 
 dependencies {
-    runtime 'org.hsqldb:hsqldb'
     runtime 'org.postgresql:postgresql:9.3-1102-jdbc41'
     compile 'org.springframework.boot:spring-boot-starter-thymeleaf'
     compile 'org.apache.commons:commons-math3:3.3'
