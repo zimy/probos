@@ -23,6 +23,8 @@ server:
 ---
 spring:
   profiles: openshift
+  thymeleaf:
+      check-template-location: false
 server:
   address: ${OPENSHIFT_DIY_IP}
   port: ${OPENSHIFT_DIY_PORT}
