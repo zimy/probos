@@ -2,7 +2,6 @@ package me.zimy.probos;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.boot.orm.jpa.EntityScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -14,7 +13,6 @@ import org.springframework.web.filter.CharacterEncodingFilter;
  * @author Dmitriy &lt;Zimy&gt; Yakovlev
  * @since 12/1/14.
  */
-@EntityScan
 @Configuration
 @ComponentScan
 @EnableAutoConfiguration
