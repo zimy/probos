@@ -58,10 +58,10 @@ public class SortService {
      *
      * @param arr input array
      */
-    public int insertionSort(int[] arr) {
+    public int insertionSort(double[] arr) {
         int SERVICE = 0;
         for (int i = 1; i < arr.length; i++) {
-            int currElem = arr[i];
+            double currElem = arr[i];
             int prevKey = i - 1;
             while (prevKey >= 0 && arr[prevKey] > currElem) {
                 arr[prevKey + 1] = arr[prevKey];
