@@ -37,11 +37,11 @@ public class MagicService {
                 counter++;
             }
         }
-        return new AsyncResult<Integer>(counter);
+        return new AsyncResult<>(counter);
     }
 
     @Async
-    public Future<Integer> calcilateNormalDistribution(int n, double confidence, int iterations, double m, double d) {
+    public Future<Integer> calculateNormalDistribution(int n, double confidence, int iterations, double m, double d) {
         RealDistribution normal = new NormalDistribution(new MersenneTwister(), m, d);
         int counter = 0;
         for (int i = 0; i < iterations; i++) {
@@ -51,7 +51,7 @@ public class MagicService {
                 counter++;
             }
         }
-        return new AsyncResult<Integer>(counter);
+        return new AsyncResult<>(counter);
     }
 
     public ConfidenceInterval meanConfidence(DescriptiveStatistics statistics, double confidence) {
