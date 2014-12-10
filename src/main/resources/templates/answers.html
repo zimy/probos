@@ -5,6 +5,8 @@
     <meta charset="UTF-8"/>
     <title>Ответы для варианта 3</title>
     <link th:attr="href=@{common.css}" href="../public/common.css" type="text/css" rel="stylesheet"/>
+    <script th:attr="src=@{webjars/jquery/2.1.1/jquery.min.js}"></script>
+    <script th:attr="src=@{webjars/flot/0.8.3/jquery.flot.min.js}"></script>
 </head>
 <body>
 <div class="thanks">
@@ -52,10 +54,25 @@
         </thead>
         <tbody>
         <tr>
-            <td class="center middle" th:each="data,rowStat : ${secondResult.getHistogram()}" th:text="${data}">1</td>
+            <td class="center middle" th:each="data,rowStat : ${secondResult.getHistogram()}" th:text="${data}"
+                th:attr="id=${rowStat.index}">1
+            </td>
         </tr>
         </tbody>
     </table>
+
+    <div id="placeholder" style="width:100%;height:300px"></div>
+    <script th:inline="javascript" type="text/javascript">
+        // <![CDATA[
+        $(function () {
+            var d2 = [[0, 3], [1, 8], [2, 5], [3, 13], [4, 1], [5, 6], [6, 6]];
+            for (trash = 0; trash < 7; trash++) {
+                d2[trash][1] = parseInt($("#" + trash).text());
+            }
+            $.plot($("#placeholder"), [{data: d2, bars: {show: true}}]);
+        });
+        // ]]>
+    </script>
 </div>
 </body>
 </html>
