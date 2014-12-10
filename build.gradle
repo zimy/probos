@@ -34,4 +34,5 @@ jar {
 dependencies {
     compile 'org.springframework.boot:spring-boot-starter-thymeleaf'
     compile 'org.apache.commons:commons-math3:3.3'
+    compile 'org.webjars:raphaeljs:2.1.2-1'
 }

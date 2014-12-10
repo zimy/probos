@@ -1,23 +1,61 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org ">
 <head lang="en">
     <meta charset="UTF-8"/>
     <title>Ответы для варианта 3</title>
-    <link href="common.css" type="text/css" rel="stylesheet"/>
+    <link th:attr="href=@{common.css}" href="../public/common.css" type="text/css" rel="stylesheet"/>
 </head>
 <body>
 <div class="thanks">
     <p>Яковлев, 3 вариант</p>
 
+    <p>Код дотупен на <a href="https://github.com/zimy/probos">GitHub.com</a></p>
+
     <p>Количество верных доверительных интервалов из тысячи:</p>
 
-    <p th:text="'для варианта 3 (n=400): ' + ${my400}"></p>
+    <table class="table table-bordered">
+        <thead>
+        <tr class="center middle">
+            <th></th>
+            <th>n = 10</th>
+            <th>n = 400</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th>Вариант 3</th>
+            <td th:text="${my10}">Низнаю</td>
+            <td th:text="${my400}">Низнаю</td>
+        </tr>
+        <tr>
+            <th>Нормальное</th>
+            <td th:text="${n10}">Низнаю</td>
+            <td th:text="${n400}">Низнаю</td>
+        </tr>
+        </tbody>
+    </table>
 
-    <p th:text="'для варианта 3 (n=10): ' + ${my10}"></p>
 
-    <p th:text="'для стандартного нормального (n=400): ' + ${n400}"></p>
-
-    <p th:text="'для стандартного нормального (n=10): ' + ${n10}"></p>
+    <p> Данные для гистограммы:</p>
+    <table class="table table-bordered">
+        <thead>
+        <tr class="center middle">
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+            <th>4</th>
+            <th>5</th>
+            <th>6</th>
+            <th>7</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td class="center middle" th:each="data,rowStat : ${secondResult.getHistogram()}" th:text="${data}">1</td>
+        </tr>
+        </tbody>
+    </table>
 </div>
 </body>
 </html>
