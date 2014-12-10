@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/zimy/probos.png?label=ready&title=Ready)](https://waffle.io/zimy/probos)
 #Теорвер для Фурманова и задание по ОС для Назарова [![Build Status](https://travis-ci.org/zimy/probos.svg)](https://travis-ci.org/zimy/probos)
 
 #Теорвер
