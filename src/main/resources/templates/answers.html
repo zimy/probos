@@ -40,6 +40,10 @@
 
     <p th:text="'Квантили: 5%: '+${secondResult.getQ5()}+', 95%: '+${secondResult.getQ95()}"></p>
 
+    <p>Основной гипотезой является то, что ожидания трудоёмкостей равны. Статистика для разностей трудоёмкостей
+        составила <span th:text="${secondResult.getT()}">ХЗ</span>, в то время как критическим значением для уровня 95%
+        явилось <span th:text="${secondResult.getTCritical()}">ХЗ</span></p>
+
     <p> Данные для гистограммы:</p>
     <table class="table table-bordered">
         <thead>
@@ -61,10 +65,6 @@
         </tr>
         </tbody>
     </table>
-
-    <p>Основной гипотезой является то, что ожидания трудоёмкостей равны. Статистика для разностей трудоёмкостей
-        составила <span th:text="${secondResult.getT()}">ХЗ</span>, в то время как критическим значением для уровня 95%
-        явилось <span th:text="${secondResult.getTCritical()}">ХЗ</span></p>
 
     <div id="placeholder" style="width:100%;height:300px"></div>
     <script th:inline="javascript" type="text/javascript">
