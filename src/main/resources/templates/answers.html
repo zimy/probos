@@ -19,7 +19,7 @@
     <table class="table table-bordered">
         <thead>
         <tr class="center middle">
-            <th></th>
+            <th>Распределение</th>
             <th>n = 10</th>
             <th>n = 400</th>
         </tr>
@@ -38,6 +38,7 @@
         </tbody>
     </table>
 
+    <p th:text="'Квантили: 5%: '+${secondResult.getQ5()}+', 95%: '+${secondResult.getQ95()}"></p>
 
     <p> Данные для гистограммы:</p>
     <table class="table table-bordered">

@@ -8,7 +8,7 @@ import java.util.List;
  */
 public class SecondResult {
     List<Integer> histogram;
-    double q5, q95;
+    int q5, q95;
 
     public List<Integer> getHistogram() {
         return histogram;
@@ -18,19 +18,19 @@ public class SecondResult {
         this.histogram = histogram;
     }
 
-    public double getQ5() {
+    public int getQ5() {
         return q5;
     }
 
-    public void setQ5(double q5) {
+    public void setQ5(int q5) {
         this.q5 = q5;
     }
 
-    public double getQ95() {
+    public int getQ95() {
         return q95;
     }
 
-    public void setQ95(double q95) {
+    public void setQ95(int q95) {
         this.q95 = q95;
     }
 }

@@ -86,8 +86,13 @@ public class SortingCalculationSettings {
             parts.set(position, parts.get(position) + 1);
         }
 
+        int K5 = 5;
+        int K95 = 94;
+
         SecondResult secondResult = new SecondResult();
         secondResult.setHistogram(parts);
+        secondResult.setQ5(as.get(K5));
+        secondResult.setQ95(as.get(K95));
         return new AsyncResult<>(secondResult);
     }
 }
