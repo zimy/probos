@@ -41,7 +41,7 @@ public class SortService {
             numbers[min] = numbers[index];
             numbers[index] = temp;
         }
-        return SERVICE;
+        return 3 + (20 - 1) * 13 + 6 * (20 + 1) * 20 / 2 + SERVICE;
     }
 
     /**
@@ -70,6 +70,6 @@ public class SortService {
                 SERVICE++;
             }
         }
-        return SERVICE;
+        return 1 + 7 * (20 - 1) + (20 - 1) * (4) + 12 * SERVICE;
     }
 }
