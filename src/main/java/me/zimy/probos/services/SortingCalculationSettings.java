@@ -1,5 +1,7 @@
 package me.zimy.probos.services;
 
+import org.apache.commons.math3.distribution.AbstractRealDistribution;
+import org.apache.commons.math3.distribution.TDistribution;
 import org.apache.commons.math3.distribution.UniformRealDistribution;
 import org.apache.commons.math3.random.MersenneTwister;
 import org.apache.commons.math3.stat.descriptive.DescriptiveStatistics;
@@ -88,10 +90,25 @@ public class SortingCalculationSettings {
         int K5 = 5;
         int K95 = 94;
 
+
+        DescriptiveStatistics deltas = new DescriptiveStatistics();
+
+        for (int i = 0; i < 100; i++) {
+            deltas.addValue(as.get(i) - bs.get(i));
+        }
+
+        AbstractRealDistribution studen100 = new TDistribution(new MersenneTwister(), 99);
+
+        double T = 10 * deltas.getMean() / deltas.getStandardDeviation();
+        double Tcritical = studen100.inverseCumulativeProbability(1 - (1 - 0.95) / 2);
+
+
         SecondResult secondResult = new SecondResult();
         secondResult.setHistogram(parts);
         secondResult.setQ5(as.get(K5));
         secondResult.setQ95(as.get(K95));
+        secondResult.setT(T);
+        secondResult.setTCritical(Tcritical);
         return new AsyncResult<>(secondResult);
     }
 }
