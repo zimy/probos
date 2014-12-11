@@ -17,6 +17,8 @@ import java.util.*;
 import java.util.concurrent.*;
 
 /**
+ * That class provides all math for task 2
+ *
  * @author Dmitriy &lt;Zimy&gt; Yakovlev
  * @since 12/9/14.
  */

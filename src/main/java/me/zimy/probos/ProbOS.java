@@ -11,6 +11,8 @@ import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.web.filter.CharacterEncodingFilter;
 
 /**
+ * Base class
+ *
  * @author Dmitriy &lt;Zimy&gt; Yakovlev
  * @since 12/1/14.
  */

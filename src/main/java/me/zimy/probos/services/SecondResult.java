@@ -3,6 +3,8 @@ package me.zimy.probos.services;
 import java.util.List;
 
 /**
+ * Result store for task 2
+ *
  * @author Dmitriy &lt;Zimy&gt; Yakovlev
  * @since 12/11/14.
  */
