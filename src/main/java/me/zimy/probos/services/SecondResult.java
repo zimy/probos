@@ -1,4 +1,4 @@
-package me.zimy.probos;
+package me.zimy.probos.services;
 
 import java.util.List;
 

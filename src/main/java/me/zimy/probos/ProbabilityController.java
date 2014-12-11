@@ -1,5 +1,8 @@
 package me.zimy.probos;
 
+import me.zimy.probos.services.MagicService;
+import me.zimy.probos.services.SecondResult;
+import me.zimy.probos.services.SortingCalculationSettings;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

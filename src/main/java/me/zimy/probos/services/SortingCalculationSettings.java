@@ -1,4 +1,4 @@
-package me.zimy.probos;
+package me.zimy.probos.services;
 
 import org.apache.commons.math3.distribution.UniformRealDistribution;
 import org.apache.commons.math3.random.MersenneTwister;
@@ -29,7 +29,6 @@ public class SortingCalculationSettings {
         List<Pair<Future<Integer>, Future<Integer>>> pairs = new ArrayList<>(100);
         Queue<Future<Integer>> queue = new ConcurrentLinkedDeque<>();
         ExecutorService executorService = Executors.newCachedThreadPool();
-        List<Pair<Integer, Integer>> result = new ArrayList<>(100);
 
         final UniformRealDistribution distribution = new UniformRealDistribution(new MersenneTwister(), 0, 1);
         for (int i = 0; i < 100; i++) {

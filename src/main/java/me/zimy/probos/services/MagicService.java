@@ -1,4 +1,4 @@
-package me.zimy.probos;
+package me.zimy.probos.services;
 
 import org.apache.commons.math3.distribution.*;
 import org.apache.commons.math3.random.MersenneTwister;
