@@ -100,7 +100,7 @@ public class SortingCalculationSettings {
         AbstractRealDistribution studen100 = new TDistribution(new MersenneTwister(), 99);
 
         double T = 10 * deltas.getMean() / deltas.getStandardDeviation();
-        double Tcritical = studen100.inverseCumulativeProbability(1 - (1 - 0.95) / 2);
+        double Tcritical = studen100.inverseCumulativeProbability(1 - (1 - 0.9999) / 2);
 
 
         SecondResult secondResult = new SecondResult();

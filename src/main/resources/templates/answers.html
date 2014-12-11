@@ -10,9 +10,11 @@
 </head>
 <body>
 <div class="thanks">
-    <p>Яковлев, 3 вариант</p>
+    <h1>Яковлев Дмитрий, 3 вариант</h1>
 
-    <p>Код доступен на <a href="https://github.com/zimy/probos">GitHub.com</a></p>
+    <p>Код доступен на <a href="https://github.com/zimy/probos">GitHub.com</a> <img
+            src="https://travis-ci.org/zimy/probos.svg?branch=master" alt="и успешно собирается и деплоится Travis CI"/>
+    </p>
 
     <p>Количество верных доверительных интервалов из тысячи:</p>
 
@@ -41,8 +43,11 @@
     <p th:text="'Квантили: 5%: '+${secondResult.getQ5()}+', 95%: '+${secondResult.getQ95()}"></p>
 
     <p>Основной гипотезой является то, что ожидания трудоёмкостей равны. Статистика для разностей трудоёмкостей
-        составила <span th:text="${secondResult.getT()}">ХЗ</span>, в то время как критическим значением для уровня 95%
+        составила <span th:text="${secondResult.getT()}">ХЗ</span>, в то время как критическим значением для уровня
+        99.99%
         явилось <span th:text="${secondResult.getTCritical()}">ХЗ</span></p>
+
+    <p>Так как статистика сильно больше критического значения, основная гипотеза отвергается.</p>
 
     <p> Данные для гистограммы:</p>
     <table class="table table-bordered">
