@@ -28,6 +28,9 @@ spring:
 server:
   address: ${OPENSHIFT_DIY_IP}
   port: ${OPENSHIFT_DIY_PORT}
+  tomcat:
+    remote_ip_header: x-forwarded-for
+    protocol_header: x-forwarded-proto
 logging:
   path: ${OPENSHIFT_DATA_DIR}/logs/
 ---
