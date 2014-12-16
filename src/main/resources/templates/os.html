@@ -4,7 +4,7 @@
 <head lang="en">
     <meta charset="UTF-8"/>
     <title>Раздел 2, вариант 9</title>
-    <link th:attr="href=@{common.css}" href="../public/common.css" type="text/css" rel="stylesheet"/>
+    <link th:attr="href=@{/common.css}" href="../public/common.css" type="text/css" rel="stylesheet"/>
     <script th:attr="src=@{webjars/jquery/2.1.1/jquery.min.js}"></script>
     <script th:attr="src=@{webjars/flot/0.8.3/jquery.flot.min.js}"></script>
 </head>
@@ -13,6 +13,10 @@
     <h1>Яковлев Дмитрий, 302ПИ</h1>
 
     <p>Код доступен на <a href="https://github.com/zimy/probos">GitHub.com</a></p>
+
+    <p>Презентация доступна <a href="#" th:attr="href=@{/presentation.odp}">по этой ссылке</a></p>
+
+    <p>Получить помощь можно <a href="#" th:attr="href=@{/os/help}">здесь</a></p>
 
     <p>Результаты симуляции:</p>
     <table class="table table-bordered">

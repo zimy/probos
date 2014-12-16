@@ -27,6 +27,10 @@ public class LRU {
         }
         if (address != -1) {
             cache[address] = value;
+            for (int i = 0; i < size; i++) {
+                age[i]++;
+            }
+            age[address] = 0;
             return -1;
         } else {
             if (used < size) {

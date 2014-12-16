@@ -39,4 +39,9 @@ public class OSController {
         model.addAttribute("simulationResult", result);
         return "os";
     }
+
+    @RequestMapping(value = "/help", method = RequestMethod.GET)
+    public String help() {
+        return "help";
+    }
 }
