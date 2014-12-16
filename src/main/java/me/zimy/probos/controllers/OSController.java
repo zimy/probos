@@ -27,10 +27,13 @@ public class OSController {
                                @RequestParam(defaultValue = "32", required = false) int cycles,
                                @RequestParam(defaultValue = "6", required = false) int cache) {
         LRU lru = new LRU(cache);
-        List<Pair<? extends List<Integer>, Integer>> result = new ArrayList<>();
+        List<Pair<? extends List<Integer>, Pair<Integer, Integer>>> result = new ArrayList<>();
+        int counter = 0;
         for (int page : new UniformIntegerDistribution(new MersenneTwister(), 0, pages - 1).sample(cycles)) {
-            lru.put(page);
-            result.add(new Pair<>(new ArrayList<>(Arrays.asList(lru.getCache())), page));
+            if (lru.put(page) != -1) {
+                counter++;
+            }
+            result.add(new Pair<>(new ArrayList<>(Arrays.asList(lru.getCache())), new Pair<>(page, counter)));
         }
         model.addAttribute("caches", cache);
         model.addAttribute("simulationResult", result);

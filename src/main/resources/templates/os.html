@@ -19,13 +19,15 @@
         <thead>
         <tr class="center middle">
             <th th:each="i : ${#numbers.sequence( 1, caches)}" th:text="${i}">N</th>
-            <th>insertion</th>
+            <th>Вставить</th>
+            <th>прерываний</th>
         </tr>
         </thead>
         <tbody th:each="data,rowStat : ${simulationResult}">
         <tr>
             <td th:each="innerData,innerRowStat : ${data.getFirst()}" class="center middle" th:text="${innerData}"></td>
-            <td th:text="${data.getSecond()}"></td>
+            <td th:text="${data.getSecond().getFirst()}"></td>
+            <td th:text="${data.getSecond().getSecond()}"></td>
         </tr>
         </tbody>
     </table>

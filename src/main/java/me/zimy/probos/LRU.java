@@ -27,7 +27,7 @@ public class LRU {
         }
         if (address != -1) {
             cache[address] = value;
-            return address;
+            return -1;
         } else {
             if (used < size) {
                 cache[used] = value;
