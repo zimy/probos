@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org ">
+<head lang="en">
+    <meta charset="UTF-8"/>
+    <title>Раздел 2, вариант 9</title>
+    <link th:attr="href=@{common.css}" href="../public/common.css" type="text/css" rel="stylesheet"/>
+    <script th:attr="src=@{webjars/jquery/2.1.1/jquery.min.js}"></script>
+    <script th:attr="src=@{webjars/flot/0.8.3/jquery.flot.min.js}"></script>
+</head>
+<body>
+<div class="thanks">
+    <h1>Яковлев Дмитрий, 302ПИ</h1>
+
+    <p>Код доступен на <a href="https://github.com/zimy/probos">GitHub.com</a></p>
+
+    <p>Результаты симуляции:</p>
+    <table class="table table-bordered">
+        <thead>
+        <tr class="center middle">
+            <th th:each="i : ${#numbers.sequence( 1, caches)}" th:text="${i}">N</th>
+            <th>insertion</th>
+        </tr>
+        </thead>
+        <tbody th:each="data,rowStat : ${simulationResult}">
+        <tr>
+            <td th:each="innerData,innerRowStat : ${data.getFirst()}" class="center middle" th:text="${innerData}"></td>
+            <td th:text="${data.getSecond()}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

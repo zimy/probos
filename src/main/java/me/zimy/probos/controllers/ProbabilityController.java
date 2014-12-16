@@ -1,4 +1,4 @@
-package me.zimy.probos;
+package me.zimy.probos.controllers;
 
 import me.zimy.probos.services.PersistentStorage;
 import org.springframework.beans.factory.annotation.Autowired;
