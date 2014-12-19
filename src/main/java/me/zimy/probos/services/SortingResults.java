@@ -8,7 +8,7 @@ import java.util.List;
  * @author Dmitriy &lt;Zimy&gt; Yakovlev
  * @since 12/11/14.
  */
-public class SecondResult {
+public class SortingResults {
     List<Integer> histogram;
     int q5, q95;
     double T, TCritical;

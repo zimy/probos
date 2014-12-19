@@ -4,6 +4,7 @@ import me.zimy.probos.LRU;
 import org.apache.commons.math3.distribution.UniformIntegerDistribution;
 import org.apache.commons.math3.random.MersenneTwister;
 import org.apache.commons.math3.util.Pair;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -17,8 +18,8 @@ import java.util.List;
  * @author Dmitriy &lt;Zimy&gt; Yakovlev
  * @since 12/16/14.
  */
-//@Controller
-//@RequestMapping("/os")
+@Controller
+@RequestMapping("/os")
 public class OSController {
     @RequestMapping(method = RequestMethod.GET)
     public String getOsExample(Model model,

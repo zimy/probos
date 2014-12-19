@@ -8,7 +8,6 @@ import org.apache.commons.math3.stat.descriptive.DescriptiveStatistics;
 import org.apache.commons.math3.util.Pair;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.AsyncResult;
 import org.springframework.stereotype.Service;
@@ -23,13 +22,12 @@ import java.util.concurrent.*;
  * @since 12/9/14.
  */
 @Service
-public class SortingCalculationSettings {
-    Logger logger = LoggerFactory.getLogger(SortingCalculationSettings.class);
-    @Autowired
-    SortService sortService;
+public class SortingService {
+    Logger logger = LoggerFactory.getLogger(SortingService.class);
+    SortingAlgorithms sortingAlgorithms = new SortingAlgorithms();
 
     @Async
-    public Future<SecondResult> calculate() throws InterruptedException, ExecutionException {
+    public Future<SortingResults> calculate() throws InterruptedException, ExecutionException {
         List<Pair<Future<Integer>, Future<Integer>>> pairs = new ArrayList<>(100);
         Queue<Future<Integer>> queue = new ConcurrentLinkedDeque<>();
         ExecutorService executorService = Executors.newCachedThreadPool();
@@ -41,13 +39,13 @@ public class SortingCalculationSettings {
             Future<Integer> futureSelection = executorService.submit(new Callable<Integer>() {
                 @Override
                 public Integer call() throws Exception {
-                    return sortService.selectionSort(sample);
+                    return sortingAlgorithms.selectionSort(sample);
                 }
             });
             Future<Integer> futureInsertion = executorService.submit(new Callable<Integer>() {
                 @Override
                 public Integer call() throws Exception {
-                    return sortService.insertionSort(copyOf);
+                    return sortingAlgorithms.insertionSort(copyOf);
                 }
             });
             queue.add(futureInsertion);
@@ -105,12 +103,12 @@ public class SortingCalculationSettings {
         double Tcritical = studen100.inverseCumulativeProbability(1 - (1 - 0.9999) / 2);
 
 
-        SecondResult secondResult = new SecondResult();
-        secondResult.setHistogram(parts);
-        secondResult.setQ5(as.get(K5));
-        secondResult.setQ95(as.get(K95));
-        secondResult.setT(T);
-        secondResult.setTCritical(Tcritical);
-        return new AsyncResult<>(secondResult);
+        SortingResults sortingResults = new SortingResults();
+        sortingResults.setHistogram(parts);
+        sortingResults.setQ5(as.get(K5));
+        sortingResults.setQ95(as.get(K95));
+        sortingResults.setT(T);
+        sortingResults.setTCritical(Tcritical);
+        return new AsyncResult<>(sortingResults);
     }
 }

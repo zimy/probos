@@ -18,7 +18,7 @@ import java.util.concurrent.Future;
  * @since 12/8/14.
  */
 @Service
-public class MagicService {
+public class DistributionService {
     public static boolean checkInterval(ConfidenceInterval confidenceInterval, double checkingMean) {
         return checkingMean < confidenceInterval.getUpperBound() && checkingMean > confidenceInterval.getLowerBound();
     }

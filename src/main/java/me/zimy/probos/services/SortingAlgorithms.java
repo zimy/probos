@@ -1,12 +1,9 @@
 package me.zimy.probos.services;
 
-import org.springframework.stereotype.Service;
-
 /**
  * @author Wikipedia
  */
-@Service
-public class SortService {
+public class SortingAlgorithms {
     /**
      * Counting access, math, comparison, assignment
      * 2

@@ -27,7 +27,7 @@ public class ProbabilityController {
         model.addAttribute("my10", persistentStorage.getM10());
         model.addAttribute("n400", persistentStorage.getN400());
         model.addAttribute("n10", persistentStorage.getN10());
-        model.addAttribute("secondResult", persistentStorage.getSecondResult());
+        model.addAttribute("secondResult", persistentStorage.getSortingResults());
         persistentStorage.recalculate();
         return "answers";
     }

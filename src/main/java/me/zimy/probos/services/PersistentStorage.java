@@ -18,19 +18,19 @@ import java.util.concurrent.Future;
 @Service
 public class PersistentStorage {
     Integer m400 = 0, m10 = 0, n400 = 0, n10 = 0;
-    volatile SecondResult secondResult = new SecondResult();
+    volatile SortingResults sortingResults = new SortingResults();
     @Autowired
-    private MagicService magicService;
+    private DistributionService distributionService;
     @Autowired
-    private SortingCalculationSettings sortingCalculationSettings;
+    private SortingService sortingService;
 
     @Async
     public void recalculate() throws ExecutionException, InterruptedException {
-        Future<Integer> fn400 = magicService.calculateNormalDistribution(400, 0.9, 1000, 0, 1);
-        Future<Integer> fn10 = magicService.calculateNormalDistribution(10, 0.9, 1000, 0, 1);
-        Future<Integer> fm400 = magicService.calculateMyDistribution(400, 0.9, 1000, 0.5, 3, -3);
-        Future<Integer> fm10 = magicService.calculateMyDistribution(10, 0.9, 1000, 0.5, 3, -3);
-        Future<SecondResult> stats = sortingCalculationSettings.calculate();
+        Future<Integer> fn400 = distributionService.calculateNormalDistribution(400, 0.9, 1000, 0, 1);
+        Future<Integer> fn10 = distributionService.calculateNormalDistribution(10, 0.9, 1000, 0, 1);
+        Future<Integer> fm400 = distributionService.calculateMyDistribution(400, 0.9, 1000, 0.5, 3, -3);
+        Future<Integer> fm10 = distributionService.calculateMyDistribution(10, 0.9, 1000, 0.5, 3, -3);
+        Future<SortingResults> stats = sortingService.calculate();
         while (!(fn400.isDone() && fm400.isDone() && fn10.isDone() && fm10.isDone() && stats.isDone())) {
             Thread.sleep(20);
         }
@@ -38,7 +38,7 @@ public class PersistentStorage {
         n400 = fn400.get();
         m10 = fm10.get();
         n10 = fn10.get();
-        secondResult = stats.get();
+        sortingResults = stats.get();
     }
 
     public Integer getM400() {
@@ -57,8 +57,8 @@ public class PersistentStorage {
         return n10;
     }
 
-    public SecondResult getSecondResult() {
-        return secondResult;
+    public SortingResults getSortingResults() {
+        return sortingResults;
     }
 
     @PostConstruct
