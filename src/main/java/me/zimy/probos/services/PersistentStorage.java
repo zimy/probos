@@ -18,8 +18,7 @@ import java.util.concurrent.Future;
 @Service
 public class PersistentStorage {
     Integer m400 = 0, m10 = 0, n400 = 0, n10 = 0;
-    SecondResult secondResult = new SecondResult();
-
+    volatile SecondResult secondResult = new SecondResult();
     @Autowired
     private MagicService magicService;
     @Autowired
