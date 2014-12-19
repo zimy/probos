@@ -3,6 +3,28 @@ jdk:
   - oraclejdk8
   - oraclejdk7
   - openjdk7
+before_install:
+  - "if [ ! -d gradle/gradle-$gradlever ] ;
+     then
+     mkdir gradle;
+     pushd gradle;
+     wget http://services.gradle.org/distributions/gradle-$gradlever-bin.zip;
+     unzip gradle-$gradlever-bin.zip;
+     rm -f gradle-$gradlever-bin.zip;
+     popd;
+     fi;
+     export GRADLE_USER_HOME=gradle ;
+     export GRADLE_HOME=gradle/gradle-$gradlever ;
+     export PATH=$GRADLE_HOME/bin:$PATH"
+after_script:
+  - rm $GRADLE_USER_HOME/caches/modules-2/modules-2.lock
+sudo: false
+cache:
+  directories:
+    - gradle/natives
+    - gradle/gradle-$gradlever
+    - gradle/caches/$gradlever
+    - gradle/caches/modules-2/files-2.1
 deploy:
   - provider: openshift
     domain: whole
