@@ -16,8 +16,6 @@ before_install:
      export GRADLE_USER_HOME=gradle ;
      export GRADLE_HOME=gradle/gradle-$gradlever ;
      export PATH=$GRADLE_HOME/bin:$PATH"
-after_script:
-  - rm $GRADLE_USER_HOME/caches/modules-2/modules-2.lock
 sudo: false
 cache:
   directories:
