@@ -26,16 +26,29 @@ apply plugin: 'com.sarhanm.versioner'
 apply plugin: 'save-ssd'
 apply plugin: 'spring-boot'
 apply plugin: 'java'
+apply plugin: 'war'
 
 jar {
     baseName = 'ProbOS'
 }
 
+war {
+    baseName = 'ProbOS'
+}
+configurations {
+    provided
+}
+
+sourceSets {
+    main.compileClasspath += configurations.provided
+    test.compileClasspath += configurations.provided
+    test.runtimeClasspath += configurations.provided
+}
 dependencies {
     compile('org.springframework.boot:spring-boot-starter-thymeleaf') {
         exclude module: "spring-boot-starter-tomcat"
     }
-    compile 'org.springframework.boot:spring-boot-starter-undertow'
+    provided 'org.springframework.boot:spring-boot-starter-tomcat'
     compile 'org.apache.commons:commons-math3:3.3'
     runtime 'org.webjars:jquery:2.1.1'
     runtime 'org.webjars:flot:0.8.3'
